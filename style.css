@@ -1,8 +1,8 @@
 :root {
   color-scheme: light dark;
   --light-bg: snow;
-  --light-color: black;
-  --dark-bg: black;
+  --light-color: rgb(20,20,20);
+  --dark-bg: rgb(22,27,34);
   --dark-color: snow;
 }
 
@@ -18,7 +18,7 @@ body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
     color: light-dark(var(--light-color), var(--dark-color));
-    background: light-dark(var(--light-bg), var(--dark-bg));
+    background-color: light-dark(var(--light-bg), var(--dark-bg));
     padding: 20px;
 }
 
