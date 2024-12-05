@@ -68,7 +68,7 @@ body {
 
 .container {
     text-align: center;
-    background: light-dark(--var(--light-box-bg), var(--dark-box-bg));
+    background: light-dark(var(--light-box-bg), var(--dark-box-bg));
     padding: 20px 40px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
