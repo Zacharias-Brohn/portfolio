@@ -1,8 +1,10 @@
 :root {
   color-scheme: light dark;
-  --light-bg: snow;
+  --light-bg: rgb(220,220,220);
   --light-color: rgb(20,20,20);
+  --light-box-bg: white;
   --dark-bg: rgb(22,27,34);
+  --dark-box-bg: rgb(27,34,41);
   --dark-color: snow;
 }
 
