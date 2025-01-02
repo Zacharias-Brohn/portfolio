@@ -3,9 +3,19 @@
   --light-bg: rgb(220,220,220);
   --light-color: rgb(20,20,20);
   --light-box-bg: white;
+  --light-item-bg: rgb(240,240,240);
+  --light-item-hover-bg: #f0f0f0;
+  --light-border: rgb(200, 200, 200);
+  --light-link-color: #5a0000;
+  --light-link-hover-color: #730000;
   --dark-bg: rgb(22,27,34);
   --dark-box-bg: rgb(27,34,41);
+  --dark-item-bg: rgb(32,39,46);
+  --dark-item-hover-bg: rgb(39, 47, 56);
+  --dark-border: rgb(45, 55, 65);
   --dark-color: snow;
+  --dark-link-color: #ff8282;
+  --dark-link-hover-color: #ff5a5a;
 }
 
 /* General reset for consistent styling */
@@ -27,7 +37,7 @@ body {
 /* Header styling */
 h1 {
     font-size: 2.5rem;
-    color: #007acc;
+    color: light-dark(var(--light-link-color), var(--dark-link-color));
     margin-bottom: 10px;
 }
 
@@ -38,24 +48,109 @@ p {
 }
 
 /* List styling */
-ul {
+ul.projects {
     list-style: none;
     padding: 0;
 }
 
-ul li {
-    margin: 10px 0;
+/* Style for the list items */
+ul.projects li {
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+    padding: 10px;
+    border: 1px solid;
+    border-color: light-dark(var(--light-border), var(--dark-border));
+    border-radius: 5px;
+    background-color: light-dark(var(--light-item-bg), var(--dark-item-bg));
+    transition: background-color 0.3s;
 }
 
-ul li a {
-    text-decoration: none;
-    color: #007acc;
+ul.projects li:hover {
+    background-color: light-dark(var(--light-item-hover-bg), var(--dark-item-hover-bg));
+}
+
+/* Style for the images */
+ul.projects li img {
+    
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-right: 20px;
+}
+
+/* Style for the text container */
+ul.projects li div {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Style for the project name */
+ul.projects li a {
+    text-align: left;
+    font-size: 1.5rem;
+    color: light-dark(var(--light-link-color), var(--dark-link-color));
     font-weight: bold;
+    text-decoration: none;
+    margin-bottom: 10px;
     transition: color 0.3s;
 }
 
-ul li a:hover {
-    color: #005f99;
+ul.projects li a:hover {
+    color: light-dark(var(--light-link-hover-color), var(--dark-link-hover-color));
+}
+
+/* Style for the project description */
+ul.projects li p {
+    text-align: left;
+    font-size: 1rem;
+    color: light-dark(var(--light-color), var(--dark-color));
+}
+
+/* Navbar styling */
+nav {
+    background-color: light-dark(var(--light-box-bg), var(--dark-box-bg));
+    padding: 10px;
+    border-bottom: 1px solid;
+    border-color: light-dark(var(--light-border), var(--dark-border));
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: flex-start;
+    padding: 0;
+    margin: 3px 0 0 15px;
+}
+
+nav ul li  {
+    margin-right: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: light-dark(var(--light-color), var(--dark-color));
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: var(--light-link-hover-color);
+}
+
+.github-logo {
+    width: 24px;
+    height: 24px;
+}
+
+@media (prefers-color-scheme: dark) {
+    .github-logo {
+        filter: invert(100%) sepia(100%) saturate(2%) hue-rotate(230deg) brightness(105%) contrast(101%);
+    }
 }
 
 /* Center content */
